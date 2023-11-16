@@ -10,24 +10,24 @@ import java.util.Objects;
 @Table(name = "tb_belonging")
 public class Belonging {
     @EmbeddedId
-    private BelongingPK id = new BelongingPK();
+    private BelongingPK pk = new BelongingPK();
     private Integer position;
 
     public Belonging() {
     }
 
     public Belonging(Game game, GameList list, Integer position) {
-        id.setGame(game);
-        id.setList(list);
+        pk.setGame(game);
+        pk.setList(list);
         this.position = position;
     }
 
-    public BelongingPK getId() {
-        return id;
+    public BelongingPK getPk() {
+        return pk;
     }
 
-    public void setId(BelongingPK id) {
-        this.id = id;
+    public void setPk(BelongingPK pk) {
+        this.pk = pk;
     }
 
     public Integer getPosition() {
@@ -43,11 +43,11 @@ public class Belonging {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Belonging belonging = (Belonging) o;
-        return Objects.equals(id, belonging.id);
+        return Objects.equals(pk, belonging.pk);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(pk);
     }
 }
